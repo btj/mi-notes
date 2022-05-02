@@ -23,7 +23,7 @@ item = ('Documenten', [
 - Schrijf een functie die nagaat dat een waarde een geldig item is. Een geldig item is een tuple van lengte 2, met als eerste element een string en als tweede element ofwel een string ofwel een lijst van geldige items. Gebruik `type(x) == tuple` of `type(x) == str` of `type(x) == list` om na te gaan of `x` een tuple, een string, of een lijst is. Je moet dus een functie `is_geldig_item` schrijven zodat `is_geldig_item(x)` `True` teruggeeft als `x` een geldig item is, en `False` als `x` geen geldig item is.
 - Schrijf een functie die het totale aantal bestanden in een item telt. Het item `Documenten` hierboven is bevat bv. 5 bestanden.
 - Schrijf een functie die de totale lengte van alle bestanden in een item teruggeeft (dus het totale aantal tekens in de inhouden van alle bestanden).
-- Schrijf een functie die een lijst teruggeeft met alle bestanden (naam en inhoud) in een gegeven item. Voor Documenten zijn dat er dus vijf.
+- Schrijf een functie die een lijst teruggeeft met alle bestanden (naam en inhoud) in een gegeven item. Voor Documenten zijn dat er dus vijf. De functie moet dus een lijst van tuples teruggeven. (Merk op: `lijst.append(andereLijst)` voegt `andereLijst` toe als element aan `lijst`; je krijgt dan een lijst van lijsten. `lijst += andereLijst` daarentegen voegt de *elementen* van `andereLijst` toe aan `lijst`.)
 - Schrijf een functie die een kopie van een item teruggeeft waarin alle item-namen geconverteerd zijn naar kleine letters. (Gebruik `x.lower()` om een kopie van de string `x` te krijgen geconverteerd naar kleine letters.)
 
 ## Uitdrukkingen
