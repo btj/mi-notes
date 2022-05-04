@@ -112,12 +112,12 @@ De uitdrukking `lambda x, y: x + y` stelt de functie voor die twee argumenten ne
   ```
 - Schrijf een functie `filter` zodat de volgende test cases slagen:
   ```python
-  assert filter(lambda x: x < 0, [10, -20, 30, -40]) == [10, 30]
+  assert filter(lambda x: x < 0, [10, -20, 30, -40]) == [-20, -40]
   assert filter(lambda x: x.startswith('M'), ['Adam', 'Bert', 'Mark', 'Jan', 'Mia']) == ['Mark', 'Mia']
   ```
   Merk op dat de `filter`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met list comprehensions als volgt:
   ```python
-  assert [x for x in [10, -20, 30, -40] if x < 0] == [10, 30]
+  assert [x for x in [10, -20, 30, -40] if x < 0] == [-20, -40]
   assert [x for x in ['Adam', 'Bart', 'Mark', 'Jan', 'Mia'] if x.startswith('M')] == ['Mark', 'Mia']
   ```
 - Schrijf een functie `reduce` zodat de volgende test cases slagen:
