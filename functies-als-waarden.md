@@ -169,6 +169,7 @@ De functie `kth_func` geeft, gegeven een getal `k`, een functie terug die van ee
   assert list(filter(above('M'), ['Adam', 'Bert', 'Mark', 'Peter', 'Zidan'])) == ['Mark', 'Peter', 'Zidan']
   ```
   (We passen `list` toe op het resultaat van `filter` omdat de ingebouwde `filter`-functie van Python een *iterator* teruggeeft. Dit is geen lijst maar je kan een iterator wel converteren naar een lijst.)
+  (Merk op dat `<` in Python ook werkt op strings: voor strings `x` en `y` geeft `x < y` terug of `x` voor `y` komt in het alfabet. Voor woorden van meerdere tekens past Python de lexicografische volgorde toe.)
 - Schrijf een functie `prefix` zodat de volgende test cases slagen:
   ```python
   assert list(map(prefix('_'), ['aap', 'koe', 'slang'])) == ['_aap', '_koe', '_slang']
