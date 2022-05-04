@@ -93,6 +93,41 @@ operaties = {
 
 De uitdrukking `lambda x, y: x + y` stelt de functie voor die twee argumenten neemt en hun som teruggeeft als resultaat.
 
+### Oefeningen
+
+- Schrijf een functie `herhaal` zodat de volgende test cases slagen:
+  ```python
+  assert herhaal(3, lambda x: x + 1, 10) == 13
+  assert herhaal(2, lambda x: '*' + x + '*', 'echt') == '**echt**'
+  ```
+- Schrijf een functie `map` zodat de volgende test cases slagen:
+  ```python
+  assert map(lambda x: x + 1, [10, 20, 30]) == [11, 21, 31]
+  assert map(lambda x: x.upper(), ['foo', 'bar', 'baz']) == ['FOO', 'BAR', 'BAZ']
+  ```
+  Merk op dat de `map`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met *list comprehensions* als volgt:
+  ```python
+  assert [x + 1 for x in [10, 20, 30]] == [11, 21, 31]
+  assert [x.upper() for x in ['foo', 'bar', 'baz']] == ['FOO', 'BAR', 'BAZ']
+  ```
+- Schrijf een functie `filter` zodat de volgende test cases slagen:
+  ```python
+  assert filter(lambda x: x < 0, [10, -20, 30, -40]) == [10, 30]
+  assert filter(lambda x: x.startswith('M'), ['Adam', 'Bert', 'Mark', 'Jan', 'Mia']) == ['Mark', 'Mia']
+  ```
+  Merk op dat de `filter`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met list comprehensions als volgt:
+  ```python
+  assert [x for x in [10, -20, 30, -40] if x < 0] == [10, 30]
+  assert [x for x in ['Adam', 'Bart', 'Mark', 'Jan', 'Mia'] if x.startswith('M')] == ['Mark', 'Mia']
+  ```
+- Schrijf een functie `reduce` zodat de volgende test cases slagen:
+  ```python
+  assert reduce(lambda x, y: x + y, [10, 20, 30, 40]) == 100
+  assert reduce(lambda x, y: x * y, [10, 20, 30, 40]) == 240000
+  assert reduce(min, [10, 20, 30, 40]) == 10
+  assert reduce(max, [10, 20, 30, 40]) == 40
+  ```
+
 ## Geneste functies
 
 We kunnen functies definiëren in het lichaam van andere functies. Beschouw bijvoorbeeld de functie `min_by_element` hieronder, die het kleinste element teruggeeft van de gegeven lijst van tuples, waarbij als vergelijkingssleutel het `k`de element van elke tuple gebruikt wordt:
@@ -125,3 +160,18 @@ assert min(studenten, kth_func(1)) == 'Arne'
 assert min(studenten, kth_func(2)) == 'Jan'
 ```
 De functie `kth_func` geeft, gegeven een getal `k`, een functie terug die van een gegeven tuple het `k`-de element teruggeeft.
+
+### Oefeningen
+
+- Schrijf een functie `above` zodat de volgende test cases slagen:
+  ```python
+  assert list(filter(above(10), [5, 7, 10, 12, 15])) == [12, 15]
+  assert list(filter(above('M'), ['Adam', 'Bert', 'Mark', 'Peter', 'Zidan'])) == ['Mark', 'Peter', 'Zidan']
+  ```
+  (We passen `list` toe op het resultaat van `filter` omdat de ingebouwde `filter`-functie van Python een *iterator* teruggeeft. Dit is geen lijst maar je kan een iterator wel converteren naar een lijst.)
+- Schrijf een functie `prefix` zodat de volgende test cases slagen:
+  ```python
+  assert list(map(prefix('_'), ['aap', 'koe', 'slang'])) == ['_aap', '_koe', '_slang']
+  assert list(map(prefix('rare '), ['aap', 'koe', 'slang'])) == ['rare aap', 'rare koe', 'rare slang']
+  ```
+  (We passen `list` toe op het resultaat van `map` omdat de ingebouwde `map`-functie van Python een *iterator* teruggeeft. Dit is geen lijst maar je kan een iterator wel converteren naar een lijst.)
