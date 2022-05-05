@@ -156,7 +156,7 @@ De uitdrukking `lambda x, y: x + y` stelt de functie voor die twee argumenten ne
 
 ## Geneste functies
 
-We kunnen functies definiëren in het lichaam van andere functies. Beschouw bijvoorbeeld de functie `min_by_element` hieronder, die het kleinste element teruggeeft van de gegeven lijst van tuples, waarbij als vergelijkingssleutel het `k`de element van elke tuple gebruikt wordt:
+We kunnen functies definiëren in het lichaam van andere functies. Beschouw bijvoorbeeld de functie `min_by_element` hieronder, die het kleinste element teruggeeft van de gegeven lijst van tuples, waarbij als vergelijkingssleutel het `k`de element van elke tuple gebruikt wordt. (De functie maakt gebruik van de functie `min` die we hierboven definieerden.)
 ```python
 def min_by_element(values, k):
     def kth(value): return value[k]
