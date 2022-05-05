@@ -75,6 +75,65 @@ assert reken_uit(10, '-', 20) == -10
 assert reken_uit(10, '/', 20) == 0.5
 ```
 
+### Oefeningen
+
+- Schrijf een functie `map_pair` zodat de volgende test cases slagen:
+  ```python
+  def plus1(x): return x + 1
+  def maal2(x): return x * 2
+
+  assert map_pair(plus1, (3, 5)) == (4, 6)
+  assert map_pair(plus1, (7, 3)) == (8, 4)
+  assert map_pair(maal2, (3, 5)) == (6, 10)
+  assert map_pair(maal2, (7, 3)) == (14, 6)
+  ```
+- Schrijf een functie `herhaal` zodat de volgende test cases slagen:
+  ```python
+  def plus1(x): return x + 1
+  def vet(x): return '*' + x + '*'
+
+  assert herhaal(3, plus1, 10) == 13
+  assert herhaal(2, vet, 'echt') == '**echt**'
+  ```
+  Merk op dat `herhaal(0, plus1, 10) == 10`, `herhaal(1, plus1, 10) == plus1(10)`, `herhaal(2, plus1, 10) == plus1(plus1(10))`, enzovoort.
+- Schrijf een functie `map` zodat de volgende test cases slagen:
+  ```python
+  def plus1(x): return x + 1
+  def str_upper(x): return x.upper()
+
+  assert map(plus1, [10, 20, 30]) == [11, 21, 31]
+  assert map(str_upper, ['foo', 'bar']) == ['FOO', 'BAR']
+  ```
+  Merk op dat de `map`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met *list comprehensions* als volgt:
+  ```python
+  assert [x + 1 for x in [10, 20, 30]] == [11, 21, 31]
+  assert [x.upper() for x in ['foo', 'bar']] == ['FOO', 'BAR']
+  ```
+- Schrijf een functie `filter` zodat de volgende test cases slagen:
+  ```python
+  def is_kleiner_dan_nul(x): return x < 0
+  def begint_met_M(x): return x.startswith('M')
+
+  assert filter(is_kleiner_dan_nul, [10, -20, 30, -40]) == [-20, -40]
+  assert filter(begint_met_M, ['Adam', 'Bert', 'Mark', 'Jan', 'Mia']) == ['Mark', 'Mia']
+  ```
+  Merk op dat de `filter`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met list comprehensions als volgt:
+  ```python
+  assert [x for x in [10, -20, 30, -40] if x < 0] == [-20, -40]
+  assert [x for x in ['Adam', 'Bart', 'Mark', 'Jan', 'Mia'] if x.startswith('M')] == ['Mark', 'Mia']
+  ```
+- Schrijf een functie `reduce` zodat de volgende test cases slagen:
+  ```python
+  def plus(x, y): return x + y
+  def maal(x, y): return x * y
+
+  assert reduce(plus, [10, 20, 30, 40]) == 100
+  assert reduce(maal, [10, 20, 30, 40]) == 240000
+  assert reduce(min, [10, 20, 30, 40]) == 10
+  assert reduce(max, [10, 20, 30, 40]) == 40
+  ```
+  Merk op dat `reduce(plus, [10, 20, 30, 40]) == plus(plus(plus(10, 20), 30), 40)`.
+
 ## Lambda-uitdrukkingen
 
 Als je een functie enkel definieert om haar op één plaats als waarde te gebruiken, en het functielichaam bestaat enkel uit een `return`-opdracht, dan kan je dit beknopter schrijven door een *lambda-uitdrukking* te gebruiken. We kunnen bijvoorbeeld de definities van de functies `student_naam`, `student_verjaardag`, `plus`, `min`, `maal`, en `gedeeld_door` in de voorbeelden hierboven elimineren door een lambda-uitdrukking te schrijven op de plaats waar we deze functies gebruiken als waarde:
@@ -93,40 +152,7 @@ operaties = {
 
 De uitdrukking `lambda x, y: x + y` stelt de functie voor die twee argumenten neemt en hun som teruggeeft als resultaat.
 
-### Oefeningen
-
-- Schrijf een functie `herhaal` zodat de volgende test cases slagen:
-  ```python
-  assert herhaal(3, lambda x: x + 1, 10) == 13
-  assert herhaal(2, lambda x: '*' + x + '*', 'echt') == '**echt**'
-  ```
-- Schrijf een functie `map` zodat de volgende test cases slagen:
-  ```python
-  assert map(lambda x: x + 1, [10, 20, 30]) == [11, 21, 31]
-  assert map(lambda x: x.upper(), ['foo', 'bar', 'baz']) == ['FOO', 'BAR', 'BAZ']
-  ```
-  Merk op dat de `map`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met *list comprehensions* als volgt:
-  ```python
-  assert [x + 1 for x in [10, 20, 30]] == [11, 21, 31]
-  assert [x.upper() for x in ['foo', 'bar', 'baz']] == ['FOO', 'BAR', 'BAZ']
-  ```
-- Schrijf een functie `filter` zodat de volgende test cases slagen:
-  ```python
-  assert filter(lambda x: x < 0, [10, -20, 30, -40]) == [-20, -40]
-  assert filter(lambda x: x.startswith('M'), ['Adam', 'Bert', 'Mark', 'Jan', 'Mia']) == ['Mark', 'Mia']
-  ```
-  Merk op dat de `filter`-functie eigenlijk overbodig is: je kan de voorbeelden beknopter schrijven met list comprehensions als volgt:
-  ```python
-  assert [x for x in [10, -20, 30, -40] if x < 0] == [-20, -40]
-  assert [x for x in ['Adam', 'Bart', 'Mark', 'Jan', 'Mia'] if x.startswith('M')] == ['Mark', 'Mia']
-  ```
-- Schrijf een functie `reduce` zodat de volgende test cases slagen:
-  ```python
-  assert reduce(lambda x, y: x + y, [10, 20, 30, 40]) == 100
-  assert reduce(lambda x, y: x * y, [10, 20, 30, 40]) == 240000
-  assert reduce(min, [10, 20, 30, 40]) == 10
-  assert reduce(max, [10, 20, 30, 40]) == 40
-  ```
+- Schrijf alle bovenstaande test cases voor `map_pair`, `herhaal`, `map`, `filter`, en `reduce` met behulp van lambda-uitdrukkingen, zodat je de functies `plus1`, `maal2`, `vet`, enzovoort niet meer hoeft te definiëren.
 
 ## Geneste functies
 
