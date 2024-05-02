@@ -6,8 +6,14 @@ Eén manier om de wiskundige uitdrukking (10 + 5) * 3 voor te stellen in Python 
 ```python
 uitdrukking = ('*', ('+', 10, 5), 3)
 ```
-
-- Schrijf een functie die nagaat of een waarde een geldige uitdrukking is. Een geldige uitdrukking is ofwel een `int`, ofwel een tuple met drie elementen, waarvan het eerste een string is met als inhoud `+`, `-`, `*`, of `/`, en het tweede en derde een geldige uitdrukking is. Gebruik `type(x) == tuple` of `type(x) == int` of `type(x) == str` om na te gaan of een waarde `x` een tuple, een `int`, of een string is. Je moet dus een functie `is_geldige_uitdrukking` schrijven zodat `is_geldige_uitdrukking(x)` `True` teruggeeft als `x` een geldige uitdrukking is, en `False` als `x` geen geldige uitdrukking is.
+Ziehier nog enkele andere voorbeelden van uitdrukkingen in deze vorm:
+```python
+uitdrukking2 = 42  # Een getal is een uitdrukking. De waarde van deze uitdrukking is 42
+uitdrukking3 = ('+', 3, 7)  # Stelt 3 + 7 voor. De waarde van deze uitdrukking is 10
+uitdrukking4 = ('/', 12, ('+', 0, 4))  # Stelt 12 / (0 + 4) voor. De waarde van deze uitdrukking is 3
+uitdrukking5 = ('+', 1, ('+', 2, ('+', 3, ('+', 4, 5))))  # Stelt 1 + (2 + (3 + (4 + 5))) voor. Waarde: 15
+```
+- Schrijf een functie die nagaat of een Python-waarde een geldige uitdrukking is. Een geldige uitdrukking is ofwel een `int`, ofwel een tuple met drie elementen, waarvan het eerste een string is met als inhoud `+`, `-`, `*`, of `/`, en het tweede en derde een geldige uitdrukking is. Gebruik `type(x) == tuple` of `type(x) == int` of `type(x) == str` om na te gaan of een Python-waarde `x` een tuple, een `int`, of een string is. Je moet dus een functie `is_geldige_uitdrukking` schrijven zodat `is_geldige_uitdrukking(x)` `True` teruggeeft als `x` een geldige uitdrukking is, en `False` als `x` geen geldige uitdrukking is.
 - Schrijf een functie die een gegeven uitdrukking uitrekent. Voor het voorbeeld moet dit dus 45 teruggeven. Om een bewerking uit te voeren: kijk eerst of het een `+` is; zo niet, kijk of het een `-` is; zo niet, kijk of het een `*` is, enz.
 - Stel dat een uitdrukking ook variabelenamen kan bevatten. Bv.: `('*', ('+', 'x', 'y'), 'z')`. Schrijf een functie die, gegeven een dict die variabelenamen afbeeldt op hun waarde, een gegeven uitdrukking uitrekent. Gegeven de dict `{'x': 10, 'y': 5, 'z': 3}` moet dit voor de voorbeelduitdrukking dus 45 teruggeven.
 - Schrijf een functie die een uitdrukking met variabelen neemt en een dict die variabelenamen afbeeldt op uitdrukkingen. De functie moet de uitdrukking teruggeven die je krijgt als je de variabelenamen vervangt door de overeenkomstige uidrukkingen. Bv. `('+', 'x', 'x')` met dict `{'x': ('-', 'y', 'y')}` moet `('+', ('-', 'y', 'y'), ('-', 'y', 'y'))` teruggeven.
