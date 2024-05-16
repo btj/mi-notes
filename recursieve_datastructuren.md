@@ -1,5 +1,17 @@
 # Recursieve datastructuren
 
+Let op: Schrijf voor elke functie die je definieert, een uitgebreide testsuite in de vorm van `assert`-opdrachten die de verschillende gevallen van je functie grondig testen!
+
+## Gelinkte tuples
+
+Als je in Python een reeks waarden wilt opslaan, bv. de vier getallen 10, 20, 30, 40, kan je dat uiteraard doen in een `list` (`[10, 20, 30, 40]`) of een `tuple` (`(10, 20, 30, 40)`). Maar je kan ze ook opslaan als een gelinkte opeenvolging van tuples (wat we kortweg een "gelinkte tuple" zullen noemen): `(10, (20, (30, (40, ()))))`. Deze aanpak is de standaardmanier om reeksen waarden op te slaan in zogenaamde *functionele programmeertalen*, maar ook in andere programmeertalen wordt deze voorstelling vaak gebruikt (en wordt ze een *linked list* genoemd) en heeft deze voorstelling voordelen.
+
+- Schrijf een functie die nagaat of een Python-waarde een gelinkte tuple is. Dit is het geval als de waarde ofwel een tuple van lengte 0 is, ofwel een tuple van lengte 2 met als tweede element een gelinkte tuple.
+- Schrijf een functie die de lengte van een gegeven gelinkte tuple teruggeeft. De lengte van `()` is 0; de lengte van `(A, B)` is 1 plus de lengte van B.
+- Schrijf een functie die een gegeven gelinkte tuple omzet naar een `list`-object. Gegeven de gelinkte tuple `('a', ('b', ('c', ())))` moet deze functie dus `['a', 'b', 'c']` teruggeven.
+- Schrijf een functie die, gegeven een gelinkte tuple van getallen, een kopie maakt van die gelinkte tuple waarbij alle elementen vervangen zijn door hun negatie. Gegeven `(7, (-3, (11, ())))` moet deze functie dus `(-7, (3, (-11, ())))` teruggeven.
+- Schrijf een functie die, gegeven twee gelinkte tuples, de aaneenschakeling van deze twee gelinkte tuples teruggeeft. Gegeven `(1, (2, (3, ())))` en `(10, (9, (8, ())))` moet deze functie dus `(1, (2, (3, (10, (9, (8, ()))))))` teruggeven.
+
 ## Uitdrukkingen
 
 Eén manier om de wiskundige uitdrukking (10 + 5) * 3 voor te stellen in Python is als volgt:
