@@ -11,6 +11,8 @@ Als je in Python een reeks waarden wilt opslaan, bv. de vier getallen 10, 20, 30
 - Schrijf een functie die een gegeven gelinkte tuple omzet naar een `list`-object. Gegeven de gelinkte tuple `('a', ('b', ('c', ())))` moet deze functie dus `['a', 'b', 'c']` teruggeven.
 - Schrijf een functie die, gegeven een gelinkte tuple van getallen, een kopie maakt van die gelinkte tuple waarbij alle elementen vervangen zijn door hun negatie. Gegeven `(7, (-3, (11, ())))` moet deze functie dus `(-7, (3, (-11, ())))` teruggeven.
 - Schrijf een functie die, gegeven twee gelinkte tuples, de aaneenschakeling van deze twee gelinkte tuples teruggeeft. Gegeven `(1, (2, (3, ())))` en `(10, (9, (8, ())))` moet deze functie dus `(1, (2, (3, (10, (9, (8, ()))))))` teruggeven.
+- Schrijf een functie die, gegeven een gelinkte tuple van getallen, de gelinkte tuple teruggeeft die je krijgt als je uit de gegeven gelinkte tuple alle getallen kleiner dan nul verwijdert. Gegeven `(1, (-2, (-3, (4, ()))))` moet deze functie dus `(1, (4, ()))` teruggeven.
+- Schrijf een functie die, gegeven twee gelinkte tuples van gelijke lengte, een gelinkt tuple teruggeeft met als elementen de paren van overeenkomstige elementen uit de gegeven gelinkte tuples. Gegeven `(1, (2, (3, ())))` en `(10, (20, (30, ())))` moet deze functie dus `((1, 10), ((2, 20), ((3, 30), ())))` teruggeven.
 
 ## Uitdrukkingen
 
