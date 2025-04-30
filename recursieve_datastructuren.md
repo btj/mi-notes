@@ -2,6 +2,20 @@
 
 Let op: Schrijf voor elke functie die je definieert, een uitgebreide testsuite in de vorm van `assert`-opdrachten die de verschillende gevallen van je functie grondig testen!
 
+## Hints
+
+- Ter herinnering: Algemene vorm van een recursieve functie:
+  ```python
+  def f(x):
+      if ...:
+          return ... # Basisgeval
+      else:
+          return ... f(...) ... # Recursief geval
+                        ^-- "Kleinere" waarde dan argument x 
+  ```
+- Om na te gaan of `x` een tuple is: `type(x) == tuple`.
+- Gebruik `tuple`, `list`, `int`, ... niet als variabelenaam!
+
 ## Gelinkte tuples
 
 Als je in Python een reeks waarden wilt opslaan, bv. de vier getallen 10, 20, 30, 40, kan je dat uiteraard doen in een `list` (`[10, 20, 30, 40]`) of een `tuple` (`(10, 20, 30, 40)`). Maar je kan ze ook opslaan als een gelinkte opeenvolging van tuples (wat we kortweg een "gelinkte tuple" zullen noemen): `(10, (20, (30, (40, ()))))`. Deze aanpak is de standaardmanier om reeksen waarden op te slaan in zogenaamde *functionele programmeertalen*, maar ook in andere programmeertalen wordt deze voorstelling vaak gebruikt (en wordt ze een *linked list* genoemd) en heeft deze voorstelling voordelen.
