@@ -15,6 +15,7 @@ Let op: Schrijf voor elke functie die je definieert, een uitgebreide testsuite i
   ```
 - Om na te gaan of `x` een tuple is: `type(x) == tuple`.
 - Gebruik `tuple`, `list`, `int`, ... niet als variabelenaam!
+- Een tuple met enkel het getal `x` erin schrijf je zo: `(x,)`, NIET zo: `(x)`!
 
 ## Gelinkte tuples
 
